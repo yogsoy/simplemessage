@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Messages test</title>
+        <link href="style/uikit.css" type="text/css" rel="stylesheet">
+        <link href="style/uikit-rtl.css" type="text/css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <script async src="./style/uikit.js"></script>
+        <script async src="./style/uikit-icons.js"></script>
+        <script src="./client.js"></script>
+
+        <style>
+	    * {
+		font-family: Open Sans;
+	    }
+            body {
+                background-color: rgb(54,57,63);
+            }
+	    textarea {
+		font-size: 15px;
+	    }
+        </style>
+
+        <nav class="uk-navbar-container" uk-navbar>
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav">
+                        <h1 class="uk-text-large">Welcome, to my big, hard message client!</h1>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <form id="autoget" onload="autoGet()">
+                    Get messages automatically?<br>
+                    <input type="radio" onclick="autoGet()" name="wantmessages" value="yes" checked> Yes
+                    <input type="radio" onclick="autoGet()" name="wantmessages" value="no"> No
+                </form>
+            </div>
+    </nav>
+</head>
+    <body>
+
+        <!--
+        <div class="uk-alert-danger" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <p id="formerror"></p>
+        </div>
+        -->
+
+        <div class="ree-center">
+            <textarea id="messages" rows="10" cols="60" readonly></textarea>
+            <button onclick="getMessages()">Get Messages</button>
+            <form id="messageform" onsubmit="event.preventDefault(); sendMessage()">
+                <input class="uk-input" name="username" type="text" placeholder="Username">
+                <input class="uk-input" name="message" type="text" placeholder="Send a message...">
+                <button type="submit">Send</button>
+            </form>
+            <p id="messagestatus"></p>
+        </div>
+    </body>
+</html>
